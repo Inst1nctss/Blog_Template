@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>My Interactive Web Page</title>
+        <style>
+            body {
+                font-family:Arial, Helvetica, sans-serif;
+                background-color: rgb(255, 255, 255);
+                text-align: center;
+            }
+            h1 {
+                color: black;
+            }
+            button{
+                padding: 10px, 20px;
+                background-color: rgb(53, 33, 90);
+                color: white;
+                border: none;
+                cursor: pointer;
+            }
+            #output { 
+                margin-top: 20px;
+                font-size: 18px;
+            }
+        </style>
+    </head>
+    <body>
+        <h1>Welcome to my Interactive Web Page!</h1>
+        <p>Click the button to change the text below and change the background color:</p>
+
+        <button id = "changeTextButton">CLICK ME!!</button>
+
+        <h1 id = "output">I love JavaScript!</h1>
+        
+        
+        <script>
+            let changeBackgroundColor = document.getElementById('changeBackgroundColor');
+            let colors = ['red', 'green','blue','yellow','orange'];
+            let currentIndex = 0;
+            let texts = ["Please give me passing score :)", "Don't give me OSAS please :)", "CC1 is FUN!", "I love University of the Cordilleras"]
+            let outputText = document.getElementById('output');
+
+            document.getElementById("changeTextButton").addEventListener("click", function(){
+                let randomText = texts[Math.floor(Math.random() * texts.length)];
+                outputText.innerHTML = randomText;
+                outputText.style.color = 'purple';
+                document.body.style.backgroundColor = colors[currentIndex];
+                currentIndex = (currentIndex + 1 ) % colors.length;
+            });
+        </script>
+    </body>
+</html>
